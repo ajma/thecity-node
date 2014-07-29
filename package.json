@@ -1,0 +1,26 @@
+{
+  "name": "thecity",
+  "version": "0.0.1",
+  "description": "TheCity API (https://api.onthecity.org). This does not currently map the full API",
+  "main": "thecity.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ajma/thecity-node.git"
+  },
+  "keywords": [
+    "thecity"
+  ],
+  "author": "Andrew Ma",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ajma/thecity-node/issues"
+  },
+  "homepage": "https://github.com/ajma/thecity-node",
+  "dependencies": {
+    "crypto": "0.0.3",
+    "request": "^2.39.0"
+  }
+}
