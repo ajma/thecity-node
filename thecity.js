@@ -1,5 +1,6 @@
 var request = require('request');
 var crypto = require('crypto');
+var querystring = require('querystring');
 
 var root_url = 'https://api.onthecity.org';
 
@@ -60,6 +61,19 @@ module.exports = {
       list: function(userId, successCallback, errorCallback) {
         thecityRequest('/users/' + userId + '/family', successCallback, errorCallback);
       }
+    }
+  },
+  group: {
+    index: function(params, successCallback, errorCallback) {
+      if(typeof params === 'function') {
+        errorCallback = successCallback;
+        successCallback = params;
+        params = {};
+      }
+      thecityRequest('/groups?' + querystring.stringify(params), successCallback, errorCallback);
+    },
+    show: function(groupId, successCallback, errorCallback) {
+      thecityRequest('/groups/' + groupId, successCallback, errorCallback);
     }
   }
 }
