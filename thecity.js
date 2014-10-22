@@ -46,15 +46,23 @@ module.exports = {
     key = thecityKey;
   },
   user: {
-    get: function(userId, successCallback, errorCallback) {
+    show: function(userId, successCallback, errorCallback) {
       thecityRequest('/users/' + userId, successCallback, errorCallback);
+    },
+    // Deprecated, use show() instead.
+    get: function(userId, successCallback, errorCallback) {
+      this.show(userId, successCallback, errorCallback);
     },
     addresses: {
       list: function(userId, successCallback, errorCallback) {
         thecityRequest('/users/' + userId + '/addresses', successCallback, errorCallback);
       },
-      get: function(userId, addressId, successCallback, errorCallback) {
+      show: function(userId, addressId, successCallback, errorCallback) {
         thecityRequest('/users/' + userId + '/addresses/' + addressId, successCallback, errorCallback);
+      },
+      // Deprecated, use user.addresses.show() instead.
+      get: function(userId, addressId, successCallback, errorCallback) {
+        this.user.addresses.show(userId, addressId, successCallback, errorCallback);
       }
     },
     family: {
