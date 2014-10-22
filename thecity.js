@@ -59,7 +59,7 @@ module.exports = {
       },
       show: function(userId, addressId, successCallback, errorCallback) {
         thecityRequest('/users/' + userId + '/addresses/' + addressId, successCallback, errorCallback);
-      }
+      },
       // Deprecated, use user.addresses.show() instead.
       get: function(userId, addressId, successCallback, errorCallback) {
         this.user.addresses.show(userId, addressId, successCallback, errorCallback);
