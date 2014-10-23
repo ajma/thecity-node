@@ -91,8 +91,11 @@ module.exports = {
     if(typeof params === 'function') {
       errorCallback = successCallback;
       successCallback = params;
-      params = {};
+      params = null;
     }
-    thecityRequest(route + '?' + querystring.stringify(params), successCallback, errorCallback);
+    if(params) {
+      route += '?' + querystring.stringify(params);
+    }
+    thecityRequest(route, successCallback, errorCallback);
   }
 }
