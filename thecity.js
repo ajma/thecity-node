@@ -93,6 +93,6 @@ module.exports = {
       successCallback = params;
       params = {};
     }
-    thecityRequest(route, querystring.stringify(params), successCallback, errorCallback);
+    thecityRequest(route + '?' + querystring.stringify(params), successCallback, errorCallback);
   }
 }
