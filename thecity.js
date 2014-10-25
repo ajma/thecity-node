@@ -83,5 +83,19 @@ module.exports = {
     show: function(groupId, successCallback, errorCallback) {
       thecityRequest('/groups/' + groupId, successCallback, errorCallback);
     }
+  },
+  call: function(route, params, successCallback, errorCallback) {
+    if(typeof route !== 'string') {
+      throw new Error('Route must be defined.');
+    }
+    if(typeof params === 'function') {
+      errorCallback = successCallback;
+      successCallback = params;
+      params = null;
+    }
+    if(params) {
+      route += '?' + querystring.stringify(params);
+    }
+    thecityRequest(route, successCallback, errorCallback);
   }
 }
